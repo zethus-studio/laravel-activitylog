@@ -2,7 +2,7 @@
 
 namespace Spatie\Activitylog;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class EventLogBag
 {
