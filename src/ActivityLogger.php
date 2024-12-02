@@ -5,7 +5,7 @@ namespace Spatie\Activitylog;
 use Closure;
 use DateTimeInterface;
 use Illuminate\Contracts\Config\Repository;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Conditionable;
