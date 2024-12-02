@@ -102,7 +102,7 @@ class ActivityLogger
 
     public function withProperties(mixed $properties): static
     {
-        $this->getActivity()->properties = collect($properties);
+        $this->getActivity()->properties = $properties;
 
         return $this;
     }
