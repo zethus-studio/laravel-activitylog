@@ -5,7 +5,7 @@ namespace Spatie\Activitylog;
 use Closure;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Contracts\Config\Repository;
-use MongoDB\Laravel\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Exceptions\CouldNotLogActivity;
 
 class CauserResolver
@@ -49,7 +49,7 @@ class CauserResolver
         $guard = $this->authManager->guard($this->authDriver);
 
         $provider = method_exists($guard, 'getProvider') ? $guard->getProvider() : null;
-        $model = method_exists($provider, 'retrieveById') ? $provider->retrieveById($subject) : null;
+        $model = method_exists($provider, 'retrieveById') ? $provider->retrieveById(json_decode($subject)->_id) : null;
 
         throw_unless($model instanceof Model, CouldNotLogActivity::couldNotDetermineUser($subject));
 
@@ -94,7 +94,7 @@ class CauserResolver
         return $model instanceof Model || is_null($model);
     }
 
-    protected function getDefaultCauser(): ? Model
+    protected function getDefaultCauser()
     {
         return $this->authManager->guard($this->authDriver)->user();
     }
