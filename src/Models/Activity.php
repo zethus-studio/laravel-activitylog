@@ -2,9 +2,9 @@
 
 namespace Spatie\Activitylog\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use MongoDB\Laravel\Eloquent\Builder;
+use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Relations\MorphTo;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Spatie\Activitylog\Contracts\Activity as ActivityContract;
