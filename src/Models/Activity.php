@@ -42,10 +42,6 @@ class Activity extends Model implements ActivityContract
 {
     public $guarded = [];
 
-    protected $casts = [
-        'properties' => 'collection',
-    ];
-
     public function __construct(array $attributes = [])
     {
         if (! isset($this->connection)) {
