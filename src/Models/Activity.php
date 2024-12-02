@@ -42,6 +42,8 @@ class Activity extends Model implements ActivityContract
 {
     public $guarded = [];
 
+    protected $appends=['jalalianCreatedAt', 'jalalianUpdatedAt'];
+
     public function __construct(array $attributes = [])
     {
         if (! isset($this->connection)) {
@@ -124,5 +126,23 @@ class Activity extends Model implements ActivityContract
     public function scopeForBatch(Builder $query, string $batchUuid): Builder
     {
         return $query->where('batch_uuid', $batchUuid);
+    }
+
+    public function getJalalianCreatedAtAttribute()
+    {
+        if(isset($this->attributes['created_at'])) {
+            return \Morilog\Jalali\Jalalian::fromCarbon($this->attributes['created_at'])->format('Y-m-d');
+        } else {
+            return '';
+        }
+    }
+
+    public function getJalalianUpdatedAtAttribute()
+    {
+        if(isset($this->attributes['updated_at'])) {
+            return \Morilog\Jalali\Jalalian::fromCarbon($this->attributes['updated_at'])->format('Y-m-d');
+        } else {
+            return '';
+        }
     }
 }
