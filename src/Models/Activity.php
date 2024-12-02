@@ -130,8 +130,8 @@ class Activity extends Model implements ActivityContract
 
     public function getJalalianCreatedAtAttribute()
     {
-        if(isset($this->attributes['created_at'])) {
-            return \Morilog\Jalali\Jalalian::fromCarbon($this->attributes['created_at'])->format('Y-m-d');
+        if(isset($this->created_at)) {
+            return \Morilog\Jalali\Jalalian::fromCarbon($this->created_at)->format('Y-m-d');
         } else {
             return '';
         }
@@ -139,8 +139,8 @@ class Activity extends Model implements ActivityContract
 
     public function getJalalianUpdatedAtAttribute()
     {
-        if(isset($this->attributes['updated_at'])) {
-            return \Morilog\Jalali\Jalalian::fromCarbon($this->attributes['updated_at'])->format('Y-m-d');
+        if(isset($this->updated_at)) {
+            return \Morilog\Jalali\Jalalian::fromCarbon($this->updated_at)->format('Y-m-d');
         } else {
             return '';
         }
