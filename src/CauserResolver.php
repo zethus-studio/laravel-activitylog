@@ -5,7 +5,7 @@ namespace Spatie\Activitylog;
 use Closure;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Contracts\Config\Repository;
-use MongoDB\Laravel\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Exceptions\CouldNotLogActivity;
 
 class CauserResolver
